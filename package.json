@@ -1,9 +1,12 @@
 {
-  "name": "@voice-chant/common",
+  "name": "@voice-chat/common",
   "description": "Common library for microservices",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
