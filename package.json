@@ -15,7 +15,11 @@
   },
   "devDependencies": {
     "@nestjs/common": "^11.1.17",
+    "@nestjs/microservices": "^11.1.27",
     "@types/node": "^25.5.0",
     "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "@voice-chat/contracts": "^1.0.26"
   }
 }
