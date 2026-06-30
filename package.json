@@ -20,6 +20,7 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
+    "@nestjs/config": "^4.0.4",
     "@voice-chat/contracts": "^1.0.26"
   }
 }

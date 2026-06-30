@@ -2,6 +2,7 @@ import { type DynamicModule, Module } from "@nestjs/common";
 import { GRPC_CLIENTS } from "./registry/grpc.registry";
 import { GrpcClientFactory } from "./factory/grpc-client.factory";
 import { GRPC_CLIENT_PREFIX } from "./constants/grpc.constants";
+import { ConfigService } from "@nestjs/config";
 
 @Module({})
 export class GrpcModule {
@@ -17,18 +18,20 @@ export class GrpcModule {
 
           return {
             provide: `${GRPC_CLIENT_PREFIX}_${token}`,
-            useFactory: (factory: GrpcClientFactory) => {
+            useFactory: (factory: GrpcClientFactory, config: ConfigService) => {
+              const url = config.getOrThrow(cfg.env);
+
               const client = factory.createClient({
                 package: cfg.package,
                 protoPath: cfg.protoPath,
-                url: cfg.url,
+                url,
               });
 
               factory.register(token, client);
 
               return client;
             },
-            inject: [GrpcClientFactory],
+            inject: [GrpcClientFactory, ConfigService],
           };
         }),
       ],

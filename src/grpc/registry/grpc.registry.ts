@@ -4,16 +4,16 @@ export const GRPC_CLIENTS = {
   USER_PACKAGE: {
     package: "user.v1",
     protoPath: PROTO_PATHS.USER,
-    url: "0.0.0.0:50501",
+    env: "USER_GRPC_URL",
   },
   AUTH_PACKAGE: {
     package: "auth.v1",
     protoPath: PROTO_PATHS.AUTH,
-    url: "0.0.0.0:5052",
+    env: "AUTH_GRPC_URL",
   },
   GUILD_PACKAGE: {
     package: "guilds.v1",
     protoPath: PROTO_PATHS.GUILDS,
-    url: "0.0.0.0:5054",
+    env: "GUILD_GRPC_URL",
   },
 } as const;
