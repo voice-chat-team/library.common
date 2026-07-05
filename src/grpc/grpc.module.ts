@@ -3,6 +3,7 @@ import { GRPC_CLIENTS } from "./registry/grpc.registry";
 import { GrpcClientFactory } from "./factory/grpc-client.factory";
 import { GRPC_CLIENT_PREFIX } from "./constants/grpc.constants";
 import { ConfigService } from "@nestjs/config";
+import { credentials } from "@grpc/grpc-js";
 
 @Module({})
 export class GrpcModule {
@@ -25,6 +26,7 @@ export class GrpcModule {
                 package: cfg.package,
                 protoPath: cfg.protoPath,
                 url,
+                credentials: credentials.createSsl(),
               });
 
               factory.register(token, client);
