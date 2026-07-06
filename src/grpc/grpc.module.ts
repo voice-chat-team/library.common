@@ -26,7 +26,7 @@ export class GrpcModule {
                 package: cfg.package,
                 protoPath: cfg.protoPath,
                 url,
-                credentials: credentials.createSsl(),
+                credentials: credentials.createInsecure(),
               });
 
               factory.register(token, client);
