@@ -22,11 +22,15 @@ export class GrpcModule {
             useFactory: (factory: GrpcClientFactory, config: ConfigService) => {
               const url = config.getOrThrow(cfg.env);
 
+              const useSsl = url.includes("443") || url.startsWith("https");
+
               const client = factory.createClient({
                 package: cfg.package,
                 protoPath: cfg.protoPath,
                 url,
-                credentials: credentials.createInsecure(),
+                credentials: useSsl
+                  ? credentials.createSsl()
+                  : credentials.createInsecure(),
               });
 
               factory.register(token, client);
