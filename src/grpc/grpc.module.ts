@@ -22,6 +22,8 @@ export class GrpcModule {
             useFactory: (factory: GrpcClientFactory, config: ConfigService) => {
               const url = config.getOrThrow(cfg.env);
 
+              // SSL используем при локально разработке,
+              // а в проде без, так как внутри docker сети работаем по http
               const useSsl = url.includes("443") || url.startsWith("https");
 
               const client = factory.createClient({

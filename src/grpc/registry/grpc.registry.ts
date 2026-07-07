@@ -16,4 +16,9 @@ export const GRPC_CLIENTS = {
     protoPath: PROTO_PATHS.GUILDS,
     env: "GUILD_GRPC_URL",
   },
+  INVITATION_PACKAGE: {
+    package: "invitation.v1",
+    protoPath: PROTO_PATHS.INVITATION,
+    env: "INVITATION_GRPC_URL",
+  },
 } as const;
