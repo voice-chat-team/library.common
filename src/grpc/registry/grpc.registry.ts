@@ -21,4 +21,9 @@ export const GRPC_CLIENTS = {
     protoPath: PROTO_PATHS.INVITATION,
     env: "INVITATION_GRPC_URL",
   },
+  NOTIFICATION_PACKAGE: {
+    package: "notification.v1",
+    protoPath: PROTO_PATHS.NOTIFICATION,
+    env: "NOTIFICATION_GRPC_URL",
+  }
 } as const;
