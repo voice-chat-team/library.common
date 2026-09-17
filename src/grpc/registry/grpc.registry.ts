@@ -25,5 +25,10 @@ export const GRPC_CLIENTS = {
     package: "notification.v1",
     protoPath: PROTO_PATHS.NOTIFICATION,
     env: "NOTIFICATION_GRPC_URL",
-  }
+  },
+  MESSAGE_PACKAGE: {
+    package: "messages.v1",
+    protoPath: PROTO_PATHS.MESSAGES,
+    env: "MESSAGE_GRPC_URL",
+  },
 } as const;
