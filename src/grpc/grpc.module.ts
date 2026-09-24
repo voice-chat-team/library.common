@@ -30,6 +30,12 @@ export class GrpcModule {
                 package: cfg.package,
                 protoPath: cfg.protoPath,
                 url,
+                loader: {
+                  // Без этого пустой repeated-филд (например, messages: [])
+                  // декодируется как undefined вместо [], так как protobuf
+                  // не передаёт пустые repeated-поля по проводу.
+                  defaults: true,
+                },
                 credentials: useSsl
                   ? credentials.createSsl()
                   : credentials.createInsecure(),
