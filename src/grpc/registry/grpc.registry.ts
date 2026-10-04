@@ -31,6 +31,11 @@ export const GRPC_CLIENTS = {
     protoPath: PROTO_PATHS.MESSAGES,
     env: "MESSAGE_GRPC_URL",
   },
+  BOARD_PACKAGE: {
+    package: "boards.v1",
+    protoPath: PROTO_PATHS.BOARDS,
+    env: "BOARD_GRPC_URL",
+  },
   VOICE_PACKAGE: {
     package: "voice.v1",
     protoPath: PROTO_PATHS.VOICE,
