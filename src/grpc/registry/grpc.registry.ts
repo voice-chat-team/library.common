@@ -41,4 +41,9 @@ export const GRPC_CLIENTS = {
     protoPath: PROTO_PATHS.VOICE,
     env: "VOICE_GRPC_URL",
   },
+  FILE_PACKAGE: {
+    package: "files.v1",
+    protoPath: PROTO_PATHS.FILES,
+    env: "FILE_GRPC_URL",
+  },
 } as const;
