@@ -35,6 +35,10 @@ export class GrpcModule {
                   // декодируется как undefined вместо [], так как protobuf
                   // не передаёт пустые repeated-поля по проводу.
                   defaults: true,
+                  // Без этого int64 (например, size_bytes) приходит объектом
+                  // Long {low, high, unsigned}, а не числом, хотя в типах
+                  // ts-proto он объявлен как number.
+                  longs: Number,
                 },
                 credentials: useSsl
                   ? credentials.createSsl()
